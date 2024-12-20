@@ -1,53 +1,38 @@
-empty_list = [] #add to list
-empty_list.append("apple")
-empty_list.append("banana")
-empty_list.append("apple")
-empty_list.append("banana")
+def mul(*args):
+    result=1
+    for number in args:
+        result *=number
+    return result
+def diff (a,b):
+    return a-b
+def sum(a,b):
+    return a+b
+def div (a,b):
+    return a/b
+print(mul(1,2,3,4,5))
 
-for index, fruit in enumerate(empty_list):
-    print(f"Item position: {index}and value: {fruit}")
 
-fruits = ("apple", "banana", "cherry", "kiwi", "raspberry")
-print(fruits[1]) #print second iteam
-(*green, yellow, red) = fruits
-print(green, yellow, red)
-
-fruits = {"apple", "banana", "cherry", "kiwi", "raspberry"}
-for item in fruits:
-    print(item)
-    fruits.add("kiwi")
-    print(fruits)
+def print_full_name(**ashmita):
+    print(ashmita)
+    print (f"My full name is {ashmita['firest_name']}{ashmita['last_name']}")
+print_full_name(first_name="Ashmita", last_name="shrestha", middle_name="none")
     
-    #battery basket
-batteries = [50, 30, 4, 45,12,18,30] #battery basket
-minimum_battery_power = 20 #battery use minimum 20% charge
-usable_battery_power = 0 #battery 0 power 0
-usable_battery_count = 0 # usable battery 0
-for battery in batteries: #check every battery
-    if battery > minimum_battery_power: #check if battery is over charge 20% to use
-        usable_battery_power += battery #if yes use power added
-        usable_battery_count += 1 #if yes use battery count add
-print(f"There are {usable_battery_count} batteries which can be used to generate {usable_battery_power}")  
+    def print_result(*args, **kwargs):
+    print(args)
+    print(kwargs)
+    result = 0
+    for number in args:
+        result += number
+        print(f"My full name is{kwargs['first_name']}{kwargs['last_name']}and total marks = {result}")
+print_result(10,20,30,40,50, first_name= "Ashmita", last_name="Shrestha")
 
-#alien message
-alien_message = "Hi human how are you. I am an alien"
-print(f"""
-      Alien message = {alien_message}
-      Now, Human message = {alien_message[::-1]} #reserve string
-      """)
-
-#Resource( Allocation
-available_food =[
-"apple",
-"Cherry",
-"banana",
-"watermelon",
-"chocolate",
-"berries",
-"pizza",
-"water",
-]
-available_crews = 3
-each_crew_food  = len(available_food) // available_crews
-remaining_food_count =  len(available_food) % available_crews
-print(f"Each crew get {each_crew_food} food and Remaining food count = {remaining_food_count}")
+def make_phone_book():
+    x=input("enter your full name")
+    if x==adddict["name"]:
+        print(adddict)
+        
+adddict= {
+    "name":"Ashmita Shrestha",
+    "phone_number":9819716789
+}
+make_phone_book()
