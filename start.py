@@ -17,7 +17,7 @@ def print_full_name(**ashmita):
     print (f"My full name is {ashmita['firest_name']}{ashmita['last_name']}")
 print_full_name(first_name="Ashmita", last_name="shrestha", middle_name="none")
     
-    def print_result(*args, **kwargs):
+def print_result(*args, **kwargs):
     print(args)
     print(kwargs)
     result = 0
