@@ -51,3 +51,37 @@ available_crews = 3
 each_crew_food  = len(available_food) // available_crews
 remaining_food_count =  len(available_food) % available_crews
 print(f"Each crew get {each_crew_food} food and Remaining food count = {remaining_food_count}")
+
+class PhoneFactory:
+    model: None    
+    color: None
+    is_android: None
+    
+def __init__(self, model, color, is_android):
+    self.model = model
+    self.color = color
+    self.is_android = is_android
+    print("Phone created")
+        
+def __str__(self):
+    return f"{self.model} - {self.color}" 
+
+def check_os(self):
+    if self.is_android:
+        print("android")
+    else:
+        print("ios")
+oppo_phone_1 = PhoneFactory("A53", "black", True)
+print(oppo_phone_1)
+
+class Person:
+      def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        #def __init__(self):
+        # pass
+        # pass
+ashmita = Person("Ashmita", 19)
+print(ashmita.name)
+print(ashmita.age)
+   
