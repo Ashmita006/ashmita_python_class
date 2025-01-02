@@ -92,4 +92,5 @@ if num2 != 0 and num1 % num2 == 0:
     print(f"{num1} is a multiple of {num2}.")
 else:
     print(f"{num1} is NOT a multiple of {num2}.")
+    
 
