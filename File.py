@@ -155,8 +155,71 @@ if  __name__ =="__main__":
     main()
     
     #
+def natural_numbers():
+    n = 0
+    while True:
+        yield n 
+        n += 1
+gen = natural_numbers() 
+for _ in range(10): #Print the first 10 natural numbers
+    print(next(gen))
 
+treasures = ["Gold","Silver", "Gem", "Gold"]
+upper_treasure = []
+for treasure in treasures:
+    upper_treasure.append(treasure.upper())
+#use a list comprehension   yo capitalize all treasures
+capitalized_treasures = [treasure.upper() for treasure in treasures]
+print(capitalized_treasures)
 
+#
+from collections import Counter
+#Sample text
+text = """
+Python is an amazing programming language. Python is fun to learn and powerful to use.
+"""
+#Split text into words and count frequency
+words = text.lower().split()
+word_count = Counter(words)
+#Display word frequencies
+print("Woed Frequencies:")
+for word, count in word_count.items():
+    print(f"{word}:{count}")
+    
+    #
+    from queue import Queue
+#Create a task queue
+task_queue = Queue()
+#Add tasks to the queue
+tasks = ["Task 1: Clean the room", "Task 2: Write Python code","Task 3: Read a book"]
+for task in tasks:
+      task_queue.put(task)
+#Process tasks
+print("Processing Tasks:")
+while not task_queue.empty():
+    print(task_queue.get())
+    
+    #
+from collections import deque
+import random
+#Initialize deck of c ards
+deck = deque([f"{value} of {suit}" for value in
+             ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
+             for suit in ["Hearts", "Diamonds", "Clubs", "Spades"]])
+#Shuffle the deck
+random.shuffle(deck)
+#Players and their hands
+player1 = []
+player2 = []             
+#Draw 3 cards for each player
+for _ in range(3):
+    player1.append(deck.popleft())
+    player2.append(deck.popleft())
+#Display players' hands
+print("Player 1's Hand:")
+print(player1)
+print("\nPlayer 2's Hand:")
+print(player2)
 
   
                 
