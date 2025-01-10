@@ -430,8 +430,51 @@ def calculate_and_write_summary():
 if __name__ == "__main__":
     calculate_and_write_summary()
 
+#
+import csv
+import numpy as np
+input_file_path = "sales_data.csv"
+output_file_path = "sales_summary.csv"
+def read_sales_data():
+    sales_data = []
+    with open(input_file_path, mode="r") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            product = row["Product"]
+            region = row["Region"]
+            sales = int(row["Sales"])
+            price = float(row["Price"])
+            total_revenue = sales * price
+            sales_data.append({"Product": product, "Region": region, "Total Revenue": total_revenue})
+    return sales_data
+def analyze_sales_data(sales_data):
+    total_revenues = np.array([item["Total Revenue"] for item in sales_data])
+    products = np.array([item["Product"] for item in sales_data])
+    regions = np.array([item["Region"] for item in sales_data])
+    average_revenue = np.mean(total_revenues)
+    highest_revenue_index = np.argmax(total_revenues)
+    highest_revenue_product = products[highest_revenue_index]
+    highest_revenue_value = total_revenues[highest_revenue_index]
+    unique_regions = np.unique(regions)
+    total_revenue_by_region = {region: 0 for region in unique_regions}
+    for item in sales_data:
+        total_revenue_by_region[item["Region"]] += item["Total Revenue"]
 
-  
+    return average_revenue, highest_revenue_product, highest_revenue_value, total_revenue_by_region
+def write_summary_to_csv(average_revenue, highest_revenue_product, highest_revenue_value, total_revenue_by_region):
+    with open(output_file_path, mode="w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(["Metric", "Value"])
+        writer.writerow(["Average Revenue", f"${average_revenue:.2f}"])
+        writer.writerow(["Highest Revenue Product", highest_revenue_product])
+        writer.writerow(["Highest Revenue Value", f"${highest_revenue_value:.2f}"])
+        writer.writerow(["Total Revenue by Region"])
+        for region, revenue in total_revenue_by_region.items():
+            writer.writerow([region, f"${revenue:.2f}"])
+    print("Sales summary written to sales_summary.csv.")
+sales_data = read_sales_data()
+average_revenue, highest_revenue_product, highest_revenue_value, total_revenue_by_region = analyze_sales_data(sales_data)
+write_summary_to_csv(average_revenue, highest_revenue_product, highest_revenue_value, total_revenue_by_region)
                 
     
       

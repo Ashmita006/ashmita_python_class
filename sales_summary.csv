@@ -1,3 +1,8 @@
-Product,Total Revenue,Region
-Laptop,2401.0,Unknown
-Mouse,129.95,Unknown
+Metric,Value
+Average Revenue,$888.65
+Highest Revenue Product,Laptop
+Highest Revenue Value,$2401.00
+Total Revenue by Region
+East,$135.00
+North,$2401.00
+South,$129.95
